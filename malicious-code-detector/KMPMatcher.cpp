@@ -31,21 +31,41 @@ std::vector<int> computeKMPTable (const std:: string& pattern) {
 }
 
 
+bool KMPSearch(const std:: string& text, const std:: string& pattern) {
+    int n = text.length();
+    int m = pattern.length();
 
-int main() {
-    std::string pattern;
-    std::cout << "Enter a pattern string: ";
-    std::cin >> pattern;
-
-    std::vector<int> pi = computeKMPTable(pattern);
-
-    std::cout << "The KMP table for \"" << pattern << "\" is: ";
-    for (int i : pi) {
-        std::cout << i << " ";
+    if ( m == 0 || n == 0){
+        return false;
     }
-    std::cout << std::endl;
 
-    return 0;
+
+    std::vector<int>pi = computeKMPTable(pattern); 
+    int i = 0;
+    int j = 0;
+    bool found = 0; 
+
+
+    while (i < n) { 
+        while (j > 0 && text[i] != pattern[j]) {
+            j = pi[ j - 1 ];
+        }
+
+        if (text[i] == pattern[j]) {
+            j = j + 1; 
+         } 
+
+        if (j == m ) { 
+            found = true;
+            j = pi[j - 1];
+
+        }
+        i++;
+    }
+
+    return found; 
+
+
 }
 
 
