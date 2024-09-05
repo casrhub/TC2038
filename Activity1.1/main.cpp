@@ -1,7 +1,10 @@
 #include <iostream>
 #include <vector>
 
-// Merge algorithm 
+// Merge algorithm
+
+// Space complexity: O(n) , since we have two temp arrays created of num1 and num2 sizes. 
+// Time complexity: O(n)
 void merge(std::vector<int>& array, int start, int half, int end) {
     int num1 = half - start + 1;
     int num2 = end - half;
@@ -50,6 +53,9 @@ void merge(std::vector<int>& array, int start, int half, int end) {
 }
 
 // Merge sort algorithm 
+
+// Space complexity: O(n), size of the array
+// Time complexity: O(n log n)
 void mergeSort(std::vector<int>& array, int start, int end) {
     if (start < end) {
         int half = start + (end - start) / 2;
@@ -60,6 +66,8 @@ void mergeSort(std::vector<int>& array, int start, int end) {
 }
 
 int main() {
+// Time cpmplexity: O(n log n)
+// Space complexity: O(n)
     int count;
     std::cin >> count; // Read the count from standard input
 
