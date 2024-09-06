@@ -1,4 +1,6 @@
 #include "KMPMatcher.h"
+#include "Manacher.h"
+#include "LCS.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -55,6 +57,34 @@ int main() {
                           << " was not found in " << transmissionFile << std::endl;
             }
         }
+         // Part 2: Analyze the mirrored code (longest palindrome) in the transmission file
+
+        std::pair<int, int> palindromeRange = manacher(transmissionContent);
+
+        std::cout << "Longest mirrored code (palindrome) in " << transmissionFile
+                  << " starts at position " << palindromeRange.first
+                  << " and ends at position " << palindromeRange.second << std::endl;
+
+
+         // Part 3: Analyze the longest common substring between transmission1.txt and transmission2.txt
+    std::string transmission1 = readFileContent("transmission1.txt");
+    std::string transmission2 = readFileContent("transmission2.txt");
+
+    if (transmission1.empty() || transmission2.empty()) {
+        std::cerr << "One or both transmission files are empty or couldn't be read." << std::endl;
+        return 1;
+    }
+
+    // Find the longest common substring between transmission1 and transmission2
+    std::pair<int, int> lcsRange = longest_common_substring(transmission1, transmission2);
+
+    std::cout << "Longest common substring between transmission1.txt and transmission2.txt starts at position "
+              << lcsRange.first << " and ends at position " << lcsRange.second << " in transmission1.txt" << std::endl;
+          
+
+
+                  
+
     }
 
     return 0;
