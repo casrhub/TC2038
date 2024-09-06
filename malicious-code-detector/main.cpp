@@ -37,16 +37,22 @@ int main() {
                 continue;
             }
 
-            // Use KMPSearch to check if the mcode is found in the transmission file
-            bool result = KMPSearch(transmissionContent, mcodeContent);
+            // Variable to hold the index of where the pattern is found
+            int index = -1;
 
-            // Print the result as true or false
+            // Use KMPSearch to check if the mcode is found in the transmission file
+            bool result = KMPSearch(transmissionContent, mcodeContent, index);
+
+            // Print the result and the index where the pattern was found
             if (result) {
-                std::cout << "true: the file " << transmissionFile 
-                          << " contains the code in " << mcodeFile << std::endl;
+                std::cout << "true: the pattern \"" << mcodeContent
+                          << "\" from " << mcodeFile
+                          << " was found at index " << index
+                          << " in " << transmissionFile << std::endl;
             } else {
-                std::cout << "false: the file " << transmissionFile 
-                          << " does not contain the code in " << mcodeFile << std::endl;
+                std::cout << "false: the pattern \"" << mcodeContent
+                          << "\" from " << mcodeFile
+                          << " was not found in " << transmissionFile << std::endl;
             }
         }
     }
