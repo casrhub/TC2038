@@ -8,6 +8,6 @@
 std::vector<int> computeKMPTable(const std::string& pattern);
 
 // KMP search function
-bool KMPSearch(const std::string& text, const std::string& pattern);
+bool KMPSearch(const std::string& text, const std::string& pattern, int& index);
 
 #endif

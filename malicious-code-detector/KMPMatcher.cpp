@@ -31,7 +31,7 @@ std::vector<int> computeKMPTable (const std:: string& pattern) {
 }
 
 
-bool KMPSearch(const std:: string& text, const std:: string& pattern) {
+bool KMPSearch(const std:: string& text, const std:: string& pattern, int& index) {
     int n = text.length();
     int m = pattern.length();
 
@@ -43,7 +43,8 @@ bool KMPSearch(const std:: string& text, const std:: string& pattern) {
     std::vector<int>pi = computeKMPTable(pattern); 
     int i = 0;
     int j = 0;
-    bool found = 0; 
+    bool found = false;
+    index -1; 
 
 
     while (i < n) { 
@@ -57,6 +58,7 @@ bool KMPSearch(const std:: string& text, const std:: string& pattern) {
 
         if (j == m ) { 
             found = true;
+            index = i - m + 1;
             j = pi[j - 1];
 
         }
