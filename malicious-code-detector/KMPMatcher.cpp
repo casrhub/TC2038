@@ -58,7 +58,7 @@ bool KMPSearch(const std:: string& text, const std:: string& pattern, int& index
 
         if (j == m ) { 
             found = true;
-            index = i - m + 1;
+            index = i - m + 2;
             j = pi[j - 1];
 
         }
