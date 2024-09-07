@@ -28,29 +28,34 @@ The execution of the code it's the same
 
 
 
-# Test Cases Overview
+# Test Case Explanation
 
-### Test Case 1: Simple Palindrome and Pattern Matching
-- Tests for basic palindromes and pattern matching.
-- Patterns: `"abc"`, `"racecar"`, `"123"`.
-- Expected to find full palindromes and matching patterns.
+### transmission1.txt: `abxyzracecar123!@#`
+- This string includes:
+  - A mix of random characters (`abxyz`).
+  - A palindrome (`racecar`).
+  - A number sequence (`123`).
+  - Special characters (`!@#`).
+- It covers pattern matching, palindrome detection, and testing special characters and numbers.
 
-### Test Case 2: No Common Substring or Palindromes
-- Tests when no common substrings or palindromes exist.
-- Expected to return single-character palindromes.
-- Patterns: `"abc"`, `"ghi"`, `"xyz"`.
+### transmission2.txt: `123racecarzyxab!@#`
+- This string includes:
+  - The same palindrome (`racecar`) but in a different position.
+  - Similar sequences (`123` and `!@#`), which test pattern matching.
+  - Reversed parts of `transmission1.txt` (`zyxab`), which provides complexity for common substring detection.
 
-### Test Case 3: Overlapping Patterns
-- Tests for overlapping patterns like `"ab"` and `"bab"`.
-- Long palindrome expected: `"ababab"`.
-- Patterns: `"ab"`, `"bab"`, `"xyz"`.
+### mcode1.txt: `racecar`
+- A palindrome to test both **pattern matching** and **palindrome detection**.
 
-### Test Case 4: Special Characters in Patterns
-- Tests pattern matching with special characters.
-- Palindrome check should return single characters.
-- Patterns: `"123"`, `"abc"`, `"!@#"`.
+### mcode2.txt: `123`
+- A numeric pattern to test how numbers are detected across both transmissions.
 
-### Test Case 5: Full Match
-- Tests where both transmission files are identical.
-- All patterns should match.
-- Expected full palindrome match.
+### mcode3.txt: `!@#`
+- A special character sequence to test how well the algorithm handles non-alphabetic characters in pattern matching.
+
+### Summary
+- This test case covers:
+  - Pattern matching for different types of sequences (alphanumeric, special characters).
+  - Palindrome detection with overlapping patterns.
+  - Longest common substring detection in mixed content.
+
