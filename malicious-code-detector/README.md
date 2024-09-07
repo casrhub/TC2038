@@ -53,9 +53,4 @@ The execution of the code it's the same
 ### mcode3.txt: `!@#`
 - A special character sequence to test how well the algorithm handles non-alphabetic characters in pattern matching.
 
-### Summary
-- This test case covers:
-  - Pattern matching for different types of sequences (alphanumeric, special characters).
-  - Palindrome detection with overlapping patterns.
-  - Longest common substring detection in mixed content.
 
