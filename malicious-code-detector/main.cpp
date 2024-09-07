@@ -22,7 +22,8 @@ int main() {
     std::string transmissionFiles[] = {"transmission1.txt", "transmission2.txt"};
     std::string mcodeFiles[] = {"mcode1.txt", "mcode2.txt", "mcode3.txt"};
 
-    // Loop through each transmission file and mcode file combination
+    // Part 1: Loop through each transmission file and mcode file combination
+    std::cout << "------------ Part 1: Pattern Matching ------------" << std::endl;
     for (const std::string& transmissionFile : transmissionFiles) {
         std::string transmissionContent = readFileContent(transmissionFile);
 
@@ -57,16 +58,27 @@ int main() {
                           << " was not found in " << transmissionFile << std::endl;
             }
         }
-         // Part 2: Analyze the mirrored code (longest palindrome) in the transmission file
+    }
+
+    // Part 2: Analyze the mirrored code (longest palindrome) for both transmission files
+    std::cout << "------------ Part 2: Longest Palindrome ------------" << std::endl;
+    for (const std::string& transmissionFile : transmissionFiles) {
+        std::string transmissionContent = readFileContent(transmissionFile);
+
+        if (transmissionContent.empty()) {
+            std::cerr << "Transmission file is empty or couldn't be read." << std::endl;
+            continue;
+        }
 
         std::pair<int, int> palindromeRange = manacher(transmissionContent);
 
         std::cout << "Longest mirrored code (palindrome) in " << transmissionFile
                   << " starts at position " << palindromeRange.first
                   << " and ends at position " << palindromeRange.second << std::endl;
+    }
 
-
-         // Part 3: Analyze the longest common substring between transmission1.txt and transmission2.txt
+    // Part 3: Analyze the longest common substring between transmission1.txt and transmission2.txt
+    std::cout << "------------ Part 3: Longest Common Substring ------------" << std::endl;
     std::string transmission1 = readFileContent("transmission1.txt");
     std::string transmission2 = readFileContent("transmission2.txt");
 
@@ -80,12 +92,6 @@ int main() {
 
     std::cout << "Longest common substring between transmission1.txt and transmission2.txt starts at position "
               << lcsRange.first << " and ends at position " << lcsRange.second << " in transmission1.txt" << std::endl;
-          
-
-
-                  
-
-    }
 
     return 0;
 }
